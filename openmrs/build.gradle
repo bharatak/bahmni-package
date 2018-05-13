@@ -1,5 +1,10 @@
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.netflix.gradle.plugins.docker.SystemPackageDockerfile
+
 plugins {
-    id 'nebula.ospackage' version '3.4.0'
+    id 'nebula.ospackage' version '4.8.0'
+    id "nebula.ospackage-docker" version "4.8.0"
     id "java"
 }
 
@@ -13,6 +18,9 @@ repositories {
         url 'https://oss.sonatype.org/content/repositories'
     }
 }
+
+apply plugin: "nebula.ospackage"
+apply plugin: "nebula.ospackage-docker"
 
 group 'org.bahmni.openmrs'
 version project.bahmniRelease
